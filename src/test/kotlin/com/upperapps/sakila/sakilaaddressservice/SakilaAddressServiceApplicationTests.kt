@@ -1,4 +1,4 @@
-package com.upperapps.sakila.addressservice
+package com.upperapps.sakila.sakilaaddressservice
 
 import org.junit.Test
 import org.junit.runner.RunWith
