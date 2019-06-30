@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class SakilaAddressServiceApplication
 
 fun main(args: Array<String>) {
-	runApplication<SakilaAddressServiceApplication>(*args)
+    runApplication<SakilaAddressServiceApplication>(*args)
 }
