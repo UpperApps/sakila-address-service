@@ -1,9 +1,12 @@
 package com.upperapps.sakila.sakilaaddressservice.domain
 
+import kotlinx.serialization.ContextualSerialization
+import kotlinx.serialization.Serializable
 import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
+@Serializable
 class City (
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,6 +16,8 @@ class City (
         var name: String,
         @ManyToOne
         @JoinColumn(name = "country_id")
+        @ContextualSerialization
         var country: Country,
+        @ContextualSerialization
         var lastUpdate: LocalDateTime
 )
