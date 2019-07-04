@@ -3,7 +3,6 @@ package com.upperapps.sakila.sakilaaddressservice.config
 import com.fasterxml.jackson.annotation.JsonAutoDetect
 import com.fasterxml.jackson.annotation.PropertyAccessor
 import com.fasterxml.jackson.databind.ObjectMapper
-import org.springframework.cache.annotation.EnableCaching
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.PropertySource
@@ -19,13 +18,12 @@ import org.springframework.data.redis.serializer.StringRedisSerializer
 import java.time.Duration
 
 @Configuration
-@EnableCaching
 @PropertySource("classpath:application.yml")
 class RedisConfig(val environment: Environment) {
 
     @Bean
     fun redisConnectionFactory(): LettuceConnectionFactory {
-        var redisConfig = RedisStandaloneConfiguration().also {
+        val redisConfig = RedisStandaloneConfiguration().also {
             it.hostName = environment.getProperty("spring.redis.host")!!
             it.password = RedisPassword.of(environment.getProperty("spring.redis.password"))
             it.port = environment.getProperty("spring.redis.port")!!.toInt()
