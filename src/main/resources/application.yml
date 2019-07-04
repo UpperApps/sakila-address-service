@@ -3,3 +3,14 @@ spring:
     url: "jdbc:mysql://localhost:3306/sakila_address"
     username: "root"
     password: "fab014"
+management:
+  endpoints:
+    health:
+      show-details: "always"
+    web:
+      exposure:
+        include: "*"
+info:
+  app:
+    name: @project.name@
+    version: @project.version@
